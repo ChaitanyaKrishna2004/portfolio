@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --color-border-hover: hsl(var(--border-hover));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-accent-coral: #ff7f50;
+  --color-accent-violet: #9d4edd;
+}
+
+@layer base {
+  :root {
+    --background: 40 33% 96%; /* Warm ivory / soft cream */
+    --foreground: 0 0% 15%; /* Deep charcoal for main typography */
+    
+    --card: 40 20% 98%;
+    --card-foreground: 0 0% 15%;
+    
+    --muted: 40 20% 90%;
+    --muted-foreground: 20 15% 45%;
+    
+    --border: 40 20% 85%;
+    --border-hover: 40 20% 70%;
+    
+    --primary: 0 0% 15%;
+    --primary-foreground: 40 33% 96%;
+    
+    --glass-bg: rgba(255, 250, 245, 0.4);
+    --glass-border: rgba(200, 190, 180, 0.3);
+  }
+
+  .dark {
+    --background: 15 10% 8%; /* Very deep warm charcoal/brown */
+    --foreground: 40 33% 94%; /* Warm cream text */
+    
+    --card: 15 10% 12%;
+    --card-foreground: 40 33% 94%;
+    
+    --muted: 15 10% 18%;
+    --muted-foreground: 30 15% 65%;
+    
+    --border: 15 10% 25%;
+    --border-hover: 15 10% 35%;
+    
+    --primary: 40 33% 96%;
+    --primary-foreground: 15 10% 8%;
+    
+    --glass-bg: rgba(30, 25, 25, 0.4);
+    --glass-border: rgba(255, 240, 230, 0.08);
+  }
+}
+/* Base resets */
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground));
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent-violet);
+  color: #fff;
+}
+
+/* Background Noise overlay utility */
+.bg-noise {
+  position: relative;
+}
+.bg-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.dark .bg-noise::before {
+  opacity: 0.04;
+}
+
+/* Glassmorphism panel base */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}

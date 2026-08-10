@@ -1,0 +1,24 @@
+---
+title: "Building a Multi-Branch Inventory Management System"
+date: "2025-10-15"
+readTime: "8 min read"
+category: "Engineering"
+excerpt: "How we automated inventory tracking and eliminated missed payments using Node.js, Express, and MS SQL Server."
+---
+
+# The Problem
+
+At Futuresoft, tracking inventory across multiple branches and managing client billing subscriptions was a highly manual, error-prone process. Missed payments and stock mismatches were common.
+
+## The Architecture
+
+We decided to build a centralized system using **React.js** for the frontend and **Node.js/Express** for the robust backend. We utilized **MS SQL Server** with **Sequelize** for our data layer, ensuring transactional integrity.
+
+### Key Features
+- **RBAC**: Role-based access control for different warehouse managers and admins.
+- **JWT Auth**: Secure, stateless authentication.
+- **Automated Billing**: A CRON-based subscription monitor that flagged overdue accounts automatically.
+
+## The Outcome
+
+The system significantly reduced manual tracking effort and completely eliminated missed payment incidents. We deployed the solution on IIS using TFS for version control, ensuring smooth enterprise integration.
