@@ -105,7 +105,7 @@ export function Projects() {
                 <div className="glass-panel relative z-10 flex h-[95%] lg:h-[90%] max-h-[500px] lg:max-h-[650px] w-full max-w-[1200px] flex-col overflow-hidden rounded-3xl lg:flex-row">
                 
                 {/* Image / Visual Area */}
-                <div className="relative flex-1 bg-foreground/5 border-b lg:border-b-0 lg:border-r border-border p-4 sm:p-8 flex items-center justify-center min-h-[30%] lg:min-h-0 shrink-0">
+                <div className="relative h-[35%] sm:h-[40%] lg:h-auto lg:flex-1 bg-foreground/5 border-b lg:border-b-0 lg:border-r border-border p-4 sm:p-8 flex items-center justify-center shrink-0">
                    {/* Placeholder for project cinematic image */}
                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl group">
                       <div className="absolute inset-0 bg-gradient-to-br from-accent-coral/20 to-accent-violet/20 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-0 z-10 pointer-events-none" />
@@ -125,7 +125,7 @@ export function Projects() {
                 </div>
 
                 {/* Content Area */}
-                <div className="flex flex-1 flex-col justify-center p-4 sm:p-8 lg:p-12 overflow-hidden pointer-events-auto">
+                <div className="flex flex-1 flex-col justify-start lg:justify-center p-4 sm:p-6 lg:p-12 overflow-y-auto lg:overflow-hidden pointer-events-auto">
                   <div className="mb-2 text-xs sm:text-sm font-semibold tracking-wider text-accent-violet uppercase shrink-0">
                     {project.role}
                   </div>

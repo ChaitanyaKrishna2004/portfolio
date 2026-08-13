@@ -188,7 +188,7 @@ export function Skills() {
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative flex-1 w-full min-h-[400px] lg:min-h-[500px] max-h-[500px] lg:max-h-[600px] rounded-3xl glass-panel border border-foreground/5 dark:border-white/5 bg-background/30 overflow-hidden flex items-center justify-center"
+            className="relative flex-1 w-full min-h-[400px] lg:min-h-[500px] max-h-[500px] lg:max-h-[600px] rounded-3xl glass-panel border border-foreground/5 dark:border-white/5 bg-background/30 overflow-visible flex items-center justify-center"
           >
             {/* The Perfect Square Wrapper to align SVG and CSS coordinates */}
             <div className="relative w-full max-w-[400px] lg:max-w-[500px] aspect-square">
@@ -305,22 +305,25 @@ export function Skills() {
                         className="group relative"
                       >
                       {/* Node Circle */}
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 glass-panel rounded-full flex items-center justify-center border border-foreground/10 dark:border-white/20 bg-background/70 shadow-lg text-2xl text-foreground/80 hover:text-accent-coral hover:border-accent-coral/50 transition-colors duration-300 hover:scale-110">
+                      <div 
+                        tabIndex={0}
+                        className="w-12 h-12 sm:w-14 sm:h-14 glass-panel rounded-full flex items-center justify-center border border-foreground/10 dark:border-white/20 bg-background/70 shadow-lg text-2xl text-foreground/80 hover:text-accent-coral hover:border-accent-coral/50 focus:text-accent-coral focus:border-accent-coral/50 transition-colors duration-300 hover:scale-110 focus:scale-110 outline-none cursor-pointer"
+                      >
                         {skill.icon}
                       </div>
                       
                       {/* Premium Tooltip */}
                       <div className={`absolute top-1/2 -translate-y-1/2 ${
                         isLeft 
-                          ? "right-full mr-4 translate-x-[10px]" 
-                          : "left-full ml-4 translate-x-[-10px]"
-                      } px-3 py-1.5 bg-foreground text-background text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-xl whitespace-nowrap pointer-events-none group-hover:translate-x-0 z-50`}>
+                          ? "left-full ml-4 translate-x-[-10px]" 
+                          : "right-full mr-4 translate-x-[10px]"
+                      } px-3 py-1.5 bg-foreground text-background text-xs font-semibold rounded-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-300 shadow-xl whitespace-nowrap pointer-events-none group-hover:translate-x-0 group-focus-within:translate-x-0 z-50`}>
                         <span className="block mb-0.5 text-accent-coral/80 text-[10px] uppercase tracking-wider">{skill.name}</span>
                         {skill.tooltip}
                         <div className={`absolute top-1/2 -translate-y-1/2 border-4 border-transparent ${
                           isLeft 
-                            ? "-right-1 border-l-foreground" 
-                            : "-left-1 border-r-foreground"
+                            ? "-left-1 border-r-foreground" 
+                            : "-right-1 border-l-foreground"
                         }`} />
                       </div>
                       </motion.div>
