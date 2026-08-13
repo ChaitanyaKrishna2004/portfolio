@@ -7,8 +7,39 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 
 export function Contact() {
   return (
-    <section className="relative py-24 sm:py-32 w-full max-w-[100vw] box-border overflow-hidden">
+    <section className="relative pt-4 sm:pt-6 pb-24 sm:pb-32 w-full max-w-[100vw] box-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-24 box-border">
+        {/* Centered Header */}
+        <div className="flex flex-col text-center items-center mb-16 sm:mb-24">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase text-accent-violet mb-2 sm:mb-4"
+          >
+            CONTACT
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-2 sm:mb-4"
+          >
+            Let&apos;s build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-coral via-accent-pink to-accent-violet">extraordinary.</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-sm sm:text-base text-foreground/60 max-w-2xl mx-auto"
+          >
+            Whether you have a project in mind, a full-time opportunity, or just want to chat about code—I&apos;m always open to discussing new ideas.
+          </motion.p>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16">
           
           {/* Left: Info */}
@@ -16,14 +47,8 @@ export function Contact() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-center overflow-hidden"
+            className="flex flex-col justify-start overflow-hidden pt-4"
           >
-            <h2 className="text-4xl sm:text-6xl font-bold mb-6">
-              Let&apos;s build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-coral to-accent-violet">extraordinary.</span>
-            </h2>
-            <p className="text-foreground/60 text-lg mb-12 max-w-md">
-              Whether you have a project in mind, a full-time opportunity, or just want to chat about code—I&apos;m always open to discussing new ideas.
-            </p>
 
             <div className="space-y-6">
               <a href="mailto:paruchurichaitanyakrishna6@gmail.com" className="flex items-center group w-full overflow-hidden">
@@ -45,14 +70,17 @@ export function Contact() {
               </a>
 
               <div className="flex gap-4 pt-8">
-                <a href="#" className="w-12 h-12 rounded-full bg-foreground/5 border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors">
+                <a href="https://github.com/ChaitanyaKrishna2004/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-foreground/5 border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors">
                   <FaGithub className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-foreground/5 border border-border flex items-center justify-center hover:bg-[#0077b5] hover:border-[#0077b5] transition-colors">
+                <a href="https://www.linkedin.com/in/paruchuri-chaitanya-krishna-768557255/?skipRedirect=true" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-foreground/5 border border-border flex items-center justify-center hover:bg-[#0077b5] hover:border-[#0077b5] transition-colors">
                   <FaLinkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-foreground/5 border border-border flex items-center justify-center hover:bg-[#ffa116] hover:border-[#ffa116] transition-colors">
-                  <span className="font-bold">LC</span>
+                <a href="https://leetcode.com/u/chaitanya2004/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-foreground/5 border border-border flex items-center justify-center hover:bg-[#ffa116] hover:border-[#ffa116] transition-colors">
+                  <span className="font-bold text-sm">LC</span>
+                </a>
+                <a href="https://takeuforward.org/profile/krishnaparuchuri2004" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-foreground/5 border border-border flex items-center justify-center hover:bg-red-500 hover:border-red-500 hover:text-white transition-colors">
+                  <span className="font-bold text-xs tracking-tighter">TUF</span>
                 </a>
               </div>
             </div>

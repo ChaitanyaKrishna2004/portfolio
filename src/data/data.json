@@ -1,0 +1,261 @@
+{
+  "devtinder": {
+    "title": "DevTinder",
+    "category": "FULL STACK PROJECT",
+    "description": "A swipe-based developer networking platform that connects developers with similar tech stacks and helps them collaborate on amazing projects.",
+    "video": "/DevTinder.mp4",
+    "gallery": [
+      "/images/projects/devtinder/dashboard.png",
+      "/images/projects/devtinder/discover.png",
+      "/images/projects/devtinder/matches.png",
+      "/images/projects/devtinder/profile.png"
+    ],
+    "technologies": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "AWS EC2"
+    ],
+    "overview": "DevTinder is a full-stack web application built to help developers find the right people to collaborate with. Users can create profiles, swipe through developers, match, chat, and build meaningful connections.",
+    "features": [
+      {
+        "title": "Swipe & Match",
+        "description": "Smart swipe-based matching algorithm.",
+        "icon": "Heart",
+        "color": "accent-coral"
+      },
+      {
+        "title": "Real-time Chat",
+        "description": "Instant messaging with real-time updates.",
+        "icon": "MessageSquare",
+        "color": "accent-violet"
+      },
+      {
+        "title": "Secure & Fast",
+        "description": "JWT authentication, REST APIs & optimized performance.",
+        "icon": "Shield",
+        "color": "accent-violet"
+      },
+      {
+        "title": "Modern UI",
+        "description": "Beautiful, responsive interface with animations.",
+        "icon": "Sparkles",
+        "color": "accent-coral"
+      },
+      {
+        "title": "Scalable Backend",
+        "description": "Built with Node.js, Express & MongoDB.",
+        "icon": "Database",
+        "color": "accent-violet"
+      },
+      {
+        "title": "Deployed on AWS",
+        "description": "Hosted on AWS EC2 with Nginx & SSL.",
+        "icon": "Server",
+        "color": "accent-coral"
+      }
+    ],
+    "about": "DevTinder was built to solve the problem of finding the right co-founders and collaborators. Developers can filter by tech stack, experience and interests to find the perfect match. It includes secure authentication, real-time chat, profile management, and a beautiful swipe-based discovery system.",
+    "architecture": [
+      {
+        "name": "React / Frontend",
+        "color": "foreground"
+      },
+      {
+        "name": "REST API (Node.js + Express)",
+        "color": "accent-violet"
+      },
+      {
+        "name": "MongoDB",
+        "color": "accent-coral"
+      },
+      {
+        "name": "AWS EC2 + Nginx",
+        "color": "foreground"
+      }
+    ],
+    "challenges": [
+      "Implementing real-time chat efficiently",
+      "Designing a smooth swipe experience",
+      "Optimizing performance & scalability",
+      "Secure authentication & authorization"
+    ],
+    "learnings": [
+      "Building scalable full-stack applications",
+      "Designing RESTful APIs",
+      "Implementing real-time features",
+      "Security best practices",
+      "Deploying production applications"
+    ],
+    "highlights": [
+      "Built RESTful APIs with Express.js",
+      "Implemented secure authentication with JWT",
+      "Real-time chat using Socket.io",
+      "Deployed on AWS EC2 with Nginx & SSL",
+      "Achieved 99% uptime and low latency",
+      "Clean, modular and scalable code architecture"
+    ],
+    "projectInfo": {
+      "role": "Full Stack Developer",
+      "duration": "4 Weeks",
+      "team": "1",
+      "liveDemo": "devtinder.vercel.app",
+      "sourceCode": "github.com/chaitanya/devtinder"
+    }
+  },
+  "clickcart": {
+    "title": "ClickCart",
+    "category": "FULL STACK E-COMMERCE PLATFORM",
+    "description": "A comprehensive e-commerce platform featuring cart, secure checkout, order history, and a role-based admin dashboard.",
+    "video": "",
+    "gallery": [
+      "/images/projects/devtinder/dashboard.png",
+      "/images/projects/devtinder/discover.png"
+    ],
+    "technologies": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MS SQL Server",
+      "JWT"
+    ],
+    "overview": "ClickCart is a full-stack e-commerce solution built from scratch to support product listings, cart workflows, checkout processes, and comprehensive order history. It includes a fully-featured Admin Panel with Role-Based Access Control (RBAC) to securely manage the store.",
+    "features": [
+      {
+        "title": "Cart & Checkout",
+        "description": "Reduced purchase flow to under 3 steps.",
+        "icon": "ShoppingCart",
+        "color": "accent-violet"
+      },
+      {
+        "title": "Admin Panel",
+        "description": "Full CRUD operations, pagination, and search for products.",
+        "icon": "Settings",
+        "color": "accent-coral"
+      },
+      {
+        "title": "JWT Security",
+        "description": "RBAC securing 100% of API endpoints.",
+        "icon": "Shield",
+        "color": "accent-violet"
+      }
+    ],
+    "about": "Built to streamline the shopping experience and provide powerful tools for store administrators. Supported 100+ products and 50+ admin listings, significantly reducing manual order processing time.",
+    "architecture": [
+      {
+        "name": "React.js Frontend",
+        "color": "foreground"
+      },
+      {
+        "name": "Node.js & Express APIs",
+        "color": "accent-violet"
+      },
+      {
+        "name": "MS SQL Server DB",
+        "color": "accent-coral"
+      }
+    ],
+    "challenges": [
+      "Designing an efficient 3-step checkout process",
+      "Securing admin endpoints with JWT RBAC",
+      "Implementing complex SQL queries for order history"
+    ],
+    "learnings": [
+      "Full-stack e-commerce architecture",
+      "Relational database design and optimization",
+      "Role-based access control paradigms"
+    ],
+    "highlights": [
+      "Supported 100+ products with seamless checkout",
+      "Built Admin Panel with CRUD, pagination, and search for 50+ listings",
+      "Integrated JWT RBAC securing 100% of API endpoints"
+    ],
+    "projectInfo": {
+      "role": "Full Stack Developer",
+      "duration": "N/A",
+      "team": "1",
+      "liveDemo": "",
+      "sourceCode": "github.com/ChaitanyaKrishna2004"
+    }
+  },
+  "food-ordering-web-app": {
+    "title": "Food Ordering Web App",
+    "category": "FRONTEND APPLICATION",
+    "description": "A highly optimized food ordering interface featuring restaurant listings, Shimmer UI, and advanced filtering.",
+    "video": "/SnapCart-Food-Cart.mp4",
+    "gallery": [
+      "/images/projects/devtinder/dashboard.png"
+    ],
+    "technologies": [
+      "React.js",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Jest",
+      "Parcel"
+    ],
+    "overview": "A frontend-focused food ordering application built to provide a blazing-fast user experience. It leverages Redux Toolkit for state management and features a fully fleshed-out search and cart system.",
+    "features": [
+      {
+        "title": "Fast Search & Filter",
+        "description": "Reduced search-to-order flow to under 4 clicks.",
+        "icon": "Search",
+        "color": "accent-coral"
+      },
+      {
+        "title": "Shimmer UI",
+        "description": "Smooth loading states for better perceived performance.",
+        "icon": "Sparkles",
+        "color": "accent-violet"
+      },
+      {
+        "title": "High Test Coverage",
+        "description": "Achieved 90%+ test coverage with Jest.",
+        "icon": "CheckCircle",
+        "color": "accent-coral"
+      }
+    ],
+    "about": "Developed to solve slow load times and janky UI interactions. Features 100+ restaurant listings and utilizes Parcel for 30% faster builds. The focus was on establishing a bug-free critical path and exceptional performance.",
+    "architecture": [
+      {
+        "name": "React.js",
+        "color": "foreground"
+      },
+      {
+        "name": "Redux Toolkit (State)",
+        "color": "accent-violet"
+      },
+      {
+        "name": "Tailwind CSS",
+        "color": "accent-coral"
+      },
+      {
+        "name": "Jest (Testing)",
+        "color": "foreground"
+      }
+    ],
+    "challenges": [
+      "Optimizing search and filtering across 100+ listings",
+      "Managing complex state with Redux Toolkit",
+      "Writing comprehensive tests to reach 90% coverage"
+    ],
+    "learnings": [
+      "Advanced React state management",
+      "Performance optimization techniques (Shimmer UI)",
+      "Test-driven development (TDD) methodologies"
+    ],
+    "highlights": [
+      "Featured 100+ restaurant listings with Shimmer UI",
+      "Reduced search-to-order flow to under 4 clicks",
+      "Achieved 90%+ test coverage with Jest",
+      "Achieved 30% faster builds via Parcel"
+    ],
+    "projectInfo": {
+      "role": "Frontend Engineer",
+      "duration": "N/A",
+      "team": "1",
+      "liveDemo": "",
+      "sourceCode": "GitHub Repo"
+    }
+  }
+}

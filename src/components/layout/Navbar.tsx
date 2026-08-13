@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const NAV_LINKS = [
@@ -21,9 +22,20 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 py-4 sm:py-6 px-4 sm:px-6 md:px-12 pointer-events-none w-full max-w-[100vw] box-border"
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
-        <Link href="/" className="text-lg sm:text-xl font-bold tracking-tighter text-foreground hover:text-accent-coral transition-colors shrink-0">
-          Chaitanya<span className="text-accent-violet">.</span>
-        </Link>
+        <div className="flex items-center gap-6">
+          <Link href="/" className="text-lg sm:text-xl font-bold tracking-tighter text-foreground hover:text-accent-coral transition-colors shrink-0">
+            Chaitanya<span className="text-accent-violet">.</span>
+          </Link>
+          
+          {pathname.startsWith("/projects/") && (
+            <Link 
+              href="/#projects" 
+              className="hidden sm:flex items-center gap-2 text-sm font-medium text-foreground/60 hover:text-accent-coral transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" /> Back to Projects
+            </Link>
+          )}
+        </div>
         
         <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           <nav className="glass-panel px-4 sm:px-6 py-2 sm:py-3 rounded-full flex items-center gap-3 sm:gap-6 shadow-2xl shrink-0">
