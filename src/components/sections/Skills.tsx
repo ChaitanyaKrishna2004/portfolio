@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useInView } from "framer-motion";
 import { Code2, Server, Database, Shield, Layout, Terminal, Network, Cpu, Cloud, BrainCircuit, Sparkles } from "lucide-react";
 import { 
   SiReact, SiNextdotjs, SiTailwindcss, SiRedux, SiHtml5,
@@ -97,9 +97,14 @@ export function Skills() {
   const [activeCategory, setActiveCategory] = useState("✦ Full Stack");
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
+  // Only start cycling once the Skills section is actually on screen
+  const isInView = useInView(sectionRef, { amount: 0.3 });
+
   useEffect(() => {
+    if (!isInView) return;
     const index = CATEGORIES_LIST.indexOf(activeCategory);
     const activeTab = tabsRef.current[index];
     if (activeTab) {
@@ -109,10 +114,10 @@ export function Skills() {
         inline: "center",
       });
     }
-  }, [activeCategory]);
+  }, [activeCategory, isInView]);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || !isInView) return;
 
     const interval = setInterval(() => {
       setActiveCategory((prev) => {
@@ -123,7 +128,7 @@ export function Skills() {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, isInView]);
 
   // Parallax tracking
   const mouseX = useMotionValue(0);
@@ -159,7 +164,7 @@ export function Skills() {
     : CATEGORIES_DATA[activeCategory] || [];
 
   return (
-    <section className="relative pt-4 pb-24 sm:pt-6 sm:pb-32 w-full max-w-[100vw] box-border overflow-hidden">
+    <section ref={sectionRef} className="relative pt-4 pb-24 sm:pt-6 sm:pb-32 w-full max-w-[100vw] box-border overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 box-border">
         
         {/* Header */}
