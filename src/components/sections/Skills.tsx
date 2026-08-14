@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Code2, Server, Database, Shield, Layout, Terminal, Network, Cpu, Cloud, BrainCircuit, Sparkles } from "lucide-react";
 import { 
@@ -95,7 +95,35 @@ const ALSO_WORKED_WITH = [
 
 export function Skills() {
   const [activeCategory, setActiveCategory] = useState("✦ Full Stack");
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    const index = CATEGORIES_LIST.indexOf(activeCategory);
+    const activeTab = tabsRef.current[index];
+    if (activeTab) {
+      activeTab.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [activeCategory]);
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setActiveCategory((prev) => {
+        const currentIndex = CATEGORIES_LIST.indexOf(prev);
+        const nextIndex = (currentIndex + 1) % CATEGORIES_LIST.length;
+        return CATEGORIES_LIST[nextIndex];
+      });
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
   // Parallax tracking
   const mouseX = useMotionValue(0);
@@ -111,6 +139,7 @@ export function Skills() {
   const parallaxY2 = useTransform(smoothY, [-1, 1], [15, -15]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
+    setIsAutoPlaying(false);
     if (!containerRef.current) return;
     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / (width / 2);
@@ -120,6 +149,7 @@ export function Skills() {
   };
   
   const handleMouseLeave = () => {
+    setIsAutoPlaying(true);
     mouseX.set(0);
     mouseY.set(0);
   };
@@ -153,12 +183,20 @@ export function Skills() {
           
           {/* Left: Filter Navigation */}
           <div className="w-full lg:w-64 shrink-0 flex flex-row lg:flex-col gap-2 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide">
-            {CATEGORIES_LIST.map((category) => {
+            {CATEGORIES_LIST.map((category, index) => {
               const isActive = activeCategory === category;
               return (
                 <button
                   key={category}
-                  onClick={() => setActiveCategory(category)}
+                  ref={(el) => {
+                    tabsRef.current[index] = el;
+                  }}
+                  onClick={() => {
+                    setActiveCategory(category);
+                    setIsAutoPlaying(false);
+                  }}
+                  onMouseEnter={() => setIsAutoPlaying(false)}
+                  onMouseLeave={() => setIsAutoPlaying(true)}
                   className={`relative flex items-center px-5 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 whitespace-nowrap lg:whitespace-normal text-left ${
                     isActive 
                       ? "text-foreground shadow-lg scale-[1.02] bg-foreground/[0.03]" 
