@@ -1,0 +1,24 @@
+---
+title: "Modern Web Security: Beyond the Basics"
+date: "2026-07-12"
+readTime: "7 min read"
+category: "Security"
+excerpt: "A deep dive into advanced web security patterns, mitigating zero-days, and securing your Next.js applications."
+image: "/images/blog/security.jpg"
+---
+
+# Securing the Modern Web
+
+With the rise of sophisticated attacks, basic security measures like parameterization and generic firewalls are no longer enough. 
+
+## The Zero-Trust Model
+
+Adopting a zero-trust architecture means verifying every request, regardless of where it originates. For Next.js applications, this involves:
+
+1. **Strict Content Security Policies (CSP)**: Blocking inline scripts and unauthorized domains.
+2. **Robust Authentication**: Moving beyond passwords to biometric passkeys and short-lived JWTs.
+3. **Rate Limiting at the Edge**: Utilizing platforms like Vercel or Cloudflare to block DDoS attempts before they hit your compute instances.
+
+### Secure by Default
+
+When building web platforms, security cannot be an afterthought. It must be ingrained in the CI/CD pipeline through automated vulnerability scanning and static analysis tools.

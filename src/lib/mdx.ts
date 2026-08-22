@@ -11,6 +11,7 @@ export type BlogPost = {
   readTime: string;
   category: string;
   excerpt: string;
+  image: string;
   content: string;
 };
 
@@ -37,6 +38,7 @@ export function getPostBySlug(slug: string): BlogPost {
     readTime: data.readTime || "5 min read",
     category: data.category || "General",
     excerpt: data.excerpt || "",
+    image: data.image || "/images/blog/inventory.jpg",
     content,
   };
 }

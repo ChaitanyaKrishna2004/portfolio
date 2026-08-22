@@ -1,38 +1,42 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { CustomCursor } from "@/components/ui/CustomCursor";
-import { Navbar } from "@/components/layout/Navbar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { BackgroundEffects } from "@/components/ui/BackgroundEffects";
+import { getSiteSettings } from "@/services/site.service";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-export const metadata: Metadata = {
-  title: "Chaitanya Krishna | Full Stack Developer",
-  description: "Portfolio of Paruchuri Chaitanya Krishna, a Full Stack Developer building premium, scalable web applications.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSiteSettings();
+  return {
+    title: site.metaTitle,
+    description: site.metaDescription,
+  };
+}
 
-export default function RootLayout({
+/**
+ * Deliberately bare: the portfolio's fixed navbar, cursor and background
+ * effects belong to the public site only, so they live in (site)/layout.tsx.
+ * The admin panel renders its own chrome and would otherwise be overlapped by
+ * a fixed z-50 header it has no use for.
+ */
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const site = await getSiteSettings();
+
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} bg-noise bg-background text-foreground min-h-screen antialiased selection:bg-accent-violet selection:text-white`}>
+      <body className={`${inter.variable} bg-background text-foreground min-h-screen antialiased selection:bg-accent-violet selection:text-white`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme={site.defaultTheme}
           enableSystem
           disableTransitionOnChange
         >
-          <BackgroundEffects />
-          <CustomCursor />
-          <Navbar />
-          <main className="relative z-10 flex min-h-screen flex-col">
-            {children}
-          </main>
+          {children}
         </ThemeProvider>
       </body>
     </html>

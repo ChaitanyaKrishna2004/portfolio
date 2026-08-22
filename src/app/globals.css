@@ -1,5 +1,29 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@plugin "tailwindcss-animate";
+
+/*
+ * Bind the `dark:` variant to the .dark class that next-themes sets.
+ *
+ * Without this, Tailwind v4 resolves `dark:` from prefers-color-scheme while
+ * the CSS variables below resolve from the .dark class. The two disagree
+ * whenever the chosen theme differs from the OS setting, which renders
+ * dark-theme text on a light-theme background.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Class names that now live in Postgres (hero stat backgrounds, floating tech
+ * icon colours, About label positions). Tailwind scans source files, not the
+ * database, so anything the CMS can emit has to be declared here or it will be
+ * stripped from the production build.
+ */
+@source inline("bg-orange-100 bg-indigo-100 bg-fuchsia-100 bg-rose-100");
+@source inline("dark:bg-orange-500/20 dark:bg-indigo-500/20 dark:bg-fuchsia-500/20 dark:bg-rose-500/20");
+@source inline("text-[#61DAFB] text-[#339933] text-[#47A248] text-[#F7DF1E] text-[#F05032]");
+@source inline("shadow-[#61DAFB]/30 shadow-[#339933]/30 shadow-[#47A248]/30 shadow-[#F7DF1E]/30 shadow-[#F05032]/30");
+@source inline("text-accent-coral text-accent-violet");
+@source inline("-top-4 -left-6 sm:-left-12 top-1/2 -right-8 sm:-right-14 -bottom-6 left-6 sm:left-12");
 
 @theme inline {
   --color-background: hsl(var(--background));
@@ -139,4 +163,75 @@ body {
 
 .animate-meteor {
   animation: meteor var(--duration, 2s) linear infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Admin rich-text editor (TipTap / ProseMirror)
+
+   All colours come from the theme tokens so the writing surface follows the
+   light/dark choice instead of being pinned to one of them.
+--------------------------------------------------------------------------- */
+
+.ProseMirror {
+  color: hsl(var(--foreground));
+  caret-color: hsl(var(--foreground));
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+/* Placeholder shown while the document is empty. */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  color: hsl(var(--foreground) / 0.35);
+}
+
+/* Keep the selection visible even when the editor loses focus. */
+.ProseMirror ::selection {
+  background: var(--color-accent-violet);
+  color: #fff;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 1.5rem 0;
+}
+
+.ProseMirror table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.ProseMirror th,
+.ProseMirror td {
+  border: 1px solid hsl(var(--border));
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+}
+
+.ProseMirror th {
+  background: hsl(var(--foreground) / 0.05);
+  font-weight: 600;
+  text-align: left;
+}
+
+.ProseMirror .selectedCell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent-violet);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 2px solid var(--color-accent-violet);
+  outline-offset: 2px;
 }
